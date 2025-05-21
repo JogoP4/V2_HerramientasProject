@@ -1,4 +1,4 @@
-name: Notificar a Discord
+name: Notificaciones a Discord
 
 on:
   push:
@@ -6,20 +6,51 @@ on:
       - main
       - master
       - dev
+  pull_request:
+    types: [opened, closed]
 
 jobs:
   discordNotification:
     runs-on: ubuntu-latest
     steps:
-      - name: Enviar notificación a Discord
+      - name: Notificar Push
+        if: github.event_name == 'push'
         uses: Ilshidur/action-discord@master
         env:
           DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
         with:
           args: |
-            ✅ **Nuevo commit push** en `${{ github.repository }}`
+            🚀 **Nuevo push en `${{ github.repository }}`**
             🔸 Autor: `${{ github.actor }}`
             🔹 Rama: `${{ github.ref }}`
             📝 Mensaje: `${{ github.event.head_commit.message }}`
             🔗 [Ver commit](${{ github.event.head_commit.url }})
+
+      - name: Notificar Pull Request Creado
+        if: github.event_name == 'pull_request' && github.event.action == 'opened'
+        uses: Ilshidur/action-discord@master
+        env:
+          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+        with:
+          args: |
+            🛠️ **Nuevo Pull Request creado en `${{ github.repository }}`**
+            🔸 Autor: `${{ github.actor }}`
+            🔹 Rama base: `${{ github.event.pull_request.base.ref }}`
+            🔸 Rama desde: `${{ github.event.pull_request.head.ref }}`
+            📝 Título: `${{ github.event.pull_request.title }}`
+            🔗 [Ver PR](${{ github.event.pull_request.html_url }})
+
+      - name: Notificar Pull Request Mergeado
+        if: github.event_name == 'pull_request' && github.event.action == 'closed' && github.event.pull_request.merged == true
+        uses: Ilshidur/action-discord@master
+        env:
+          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+        with:
+          args: |
+            ✅ **Pull Request Mergeado en `${{ github.repository }}`**
+            🔸 Autor: `${{ github.actor }}`
+            🔹 Rama mergeada: `${{ github.event.pull_request.base.ref }}`
+            📝 Título: `${{ github.event.pull_request.title }}`
+            🔗 [Ver PR](${{ github.event.pull_request.html_url }})
+
 

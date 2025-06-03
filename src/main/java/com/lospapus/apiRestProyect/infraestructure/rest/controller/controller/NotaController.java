@@ -40,3 +40,5 @@ public class NotaController {
         return ResponseEntity.ok(notas);
     }
 }
+
+//Añadido algo al controlador para S11 actualizar Notas

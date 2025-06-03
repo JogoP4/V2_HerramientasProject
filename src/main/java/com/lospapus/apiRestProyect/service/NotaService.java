@@ -43,4 +43,6 @@ public class NotaService {
     public Nota findById(int id) {
         return notas.stream().filter(n -> n.getId() == id).findFirst().orElse(null);
     }
+
+    //Nuevo metodo para manejar la lógica de actualización S11
 }

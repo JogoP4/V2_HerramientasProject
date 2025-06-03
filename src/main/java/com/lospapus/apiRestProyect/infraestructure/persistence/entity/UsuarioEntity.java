@@ -9,6 +9,8 @@ import java.util.Date;
 @Getter @Setter
 @Entity
 public class UsuarioEntity {
+    //asas
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;

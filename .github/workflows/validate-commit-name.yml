@@ -1,0 +1,36 @@
+name: Validar nombres de commits
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+jobs:
+  validar-commits:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Obtener commits del PR
+        run: |
+          echo "🔍 Validando commits del Pull Request..."
+
+          COMMITS=$(curl -s -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
+            "${{ github.api_url }}/repos/${{ github.repository }}/pulls/${{ github.event.pull_request.number }}/commits" \
+            | jq -r '.[].commit.message')
+
+          REGEX='^(feat-S|bug-|hotfix-|refactor-|chore-|test-|experiment-).+'
+          INVALID=0
+
+          echo "✅ Prefijos válidos: feat-, bug-, hotfix-, refactor-, chore-, test-, experiment-"
+
+          echo "$COMMITS" | while read -r COMMIT_MSG; do
+            echo "📝 Validando: '$COMMIT_MSG'"
+            if [[ ! "$COMMIT_MSG" =~ $REGEX ]]; then
+              echo "::error ::❌ Commit inválido: '$COMMIT_MSG'"
+              echo "::error ::El mensaje debe comenzar con uno de los siguientes prefijos: feat-, bug-, hotfix-, refactor-, chore-, test-, experiment-"
+              INVALID=1
+            fi
+          done
+
+          if [[ "$INVALID" -eq 1 ]]; then
+            echo "::error ::❌ Uno o más commits tienen nombres inválidos. Corrige los mensajes antes de continuar."
+            exit 1
+          fi

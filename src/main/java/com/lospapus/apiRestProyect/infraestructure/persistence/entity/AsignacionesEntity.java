@@ -11,6 +11,7 @@ import lombok.Setter;
 
 @Entity
 public class AsignacionesEntity {
+    //papu 2
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;

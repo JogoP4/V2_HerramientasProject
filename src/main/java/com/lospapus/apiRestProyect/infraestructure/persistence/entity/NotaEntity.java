@@ -15,6 +15,7 @@ public class NotaEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
+    //Papu
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_alumno", nullable = false)
     private UsuarioEntity alumno;

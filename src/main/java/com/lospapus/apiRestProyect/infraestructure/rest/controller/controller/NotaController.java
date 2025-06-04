@@ -32,7 +32,7 @@ public class NotaController {
         List<NotaResponseDTO> allNotas = notaService.listarTodoasNotas();
         return ResponseEntity.ok(allNotas);
     }
-
+    //este es el rap de los continentes
 
     @GetMapping("/{idAlumno}")
     public ResponseEntity<List<NotaResponseDTO>> obtenerNotasPorAlumno(@PathVariable int idAlumno) {

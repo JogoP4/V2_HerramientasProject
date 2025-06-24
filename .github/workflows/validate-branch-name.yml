@@ -11,8 +11,8 @@ jobs:
       - name: Validar nombre de rama
         run: |
           echo "Nombre de rama: ${{ github.head_ref }}"
-          if [[ ! "${{ github.head_ref }}" =~ ^(feature|bugfix|hotfix|refactor|chore|test|experiment)/.+$ ]]; then
+          if [[ ! "${{ github.head_ref }}" =~ ^(feature|bugfix|hotfix)/.+$ ]]; then
             echo "::error ::❌ Nombre de rama inválido: '${{ github.head_ref }}'"
-            echo "::error ::Debe comenzar con: feature/, bugfix/, hotfix/, refactor/, chore/, test/, experiment/"
+            echo "::error ::Debe comenzar con: feature/, bugfix/, hotfix/"
             exit 1
           fi

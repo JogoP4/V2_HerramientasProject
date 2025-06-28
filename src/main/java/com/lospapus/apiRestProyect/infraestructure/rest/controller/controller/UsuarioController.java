@@ -45,6 +45,8 @@ public class UsuarioController {
         return ResponseEntity.ok(usuario);
     }
 
+
+
     @PutMapping("/{id}")
     @PreAuthorize("hasRole('ADMINISTRADOR') or (principal.username == @usuarioService.getEmailUsuario(#id))")
     public ResponseEntity<UsuarioResponseDTO> actualizarUsuario(@PathVariable int id, @Valid @RequestBody ActualizarUsuarioRequestDTO requestDTO) {

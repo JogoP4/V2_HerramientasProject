@@ -1,23 +1,13 @@
-    # Use a base image with Java installed (e.g., OpenJDK)
-    FROM eclipse-temurin:21-jdk
+FROM maven:3.9.6-eclipse-temurin-21 AS builder
+WORKDIR /app
 
-    # Set the working directory inside the container
-    WORKDIR /app
+COPY pom.xml .
+COPY src ./src
 
-    # Copy the Maven project's pom.xml to leverage Maven's dependency caching
-    COPY pom.xml .
+RUN mvn -B package --file pom.xml
 
-    # Copy the source code
-    COPY src ./src
+COPY target/*.jar /app/.
 
-    # Build the application using Maven (this will download dependencies)
-    RUN mvn -B package --file pom.xml
+EXPOSE 8080
 
-    # Copy the built JAR/WAR file into the image
-    COPY target/*.jar /app/.
-
-    # Expose the port your application listens on (if applicable)
-    EXPOSE 8080
-
-    # Define the command to run your application when the container starts
-    ENTRYPOINT ["java", "-jar", "app.jar"]
+ENTRYPOINT ["java", "-jar", "app.jar"]

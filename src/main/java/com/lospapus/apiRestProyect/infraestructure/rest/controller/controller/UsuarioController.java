@@ -37,6 +37,8 @@ public class UsuarioController {
         return new ResponseEntity<>(nuevoUsuario, HttpStatus.CREATED);
     }
 
+
+
     @GetMapping("/{id}")
     @PreAuthorize("hasRole('ADMINISTRADOR') or hasRole('PROFESOR') or " +
             "(hasRole('ALUMNO') and principal.username == @usuarioService.getEmailUsuario(#id))")

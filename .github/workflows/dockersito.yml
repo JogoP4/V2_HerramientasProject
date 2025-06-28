@@ -42,6 +42,7 @@ jobs:
       uses: docker/build-push-action@v6
       with:
           push: true
-          tags: jogop4/v2_herramientasproject:sistema_gestion_notas
+          tags: holdenandy/lospapus:sistema_gestion_notas
+
 
 

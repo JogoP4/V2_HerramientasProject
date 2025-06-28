@@ -42,5 +42,5 @@ jobs:
       uses: docker/build-push-action@v6
       with:
           push: true
-          tags: rengal3/utp-ejemplos:V2_HerramientasProject
+          tags: Jogop4//V2__HerramientasProject:Sistema_Gestion_Notas
 

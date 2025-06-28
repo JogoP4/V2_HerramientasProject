@@ -42,5 +42,6 @@ jobs:
       uses: docker/build-push-action@v6
       with:
           push: true
-          tags: Jogop4//V2__HerramientasProject:Sistema_Gestion_Notas
+          tags: jogop4/v2_herramientasproject:sistema_gestion_notas
+
 

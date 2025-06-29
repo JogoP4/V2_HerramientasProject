@@ -21,7 +21,7 @@ public class CursoService {
          this.mapper = mapper;
      }
 
-     public List<CursoResponseDTO> listarTodasAsignaturas(){
+     public List<CursoResponseDTO> listarTodosCursos(){
          List<Curso> cursosDomain = cursoRepository.findAll();
          return cursosDomain.stream()
                  .map(mapper::toCursoResponseDTO)

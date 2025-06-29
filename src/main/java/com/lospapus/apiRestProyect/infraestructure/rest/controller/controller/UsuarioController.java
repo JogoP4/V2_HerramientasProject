@@ -23,6 +23,7 @@ public class UsuarioController {
         this.usuarioService = usuarioService;
     }
 
+    //Acceder a la informacion de todos los alumnos
     @PreAuthorize("hasRole('ADMINISTRADOR')")
     @GetMapping
     public ResponseEntity<List<UsuarioResponseDTO>> listarTodosusuarios(){
@@ -30,6 +31,7 @@ public class UsuarioController {
         return ResponseEntity.ok(usuarios);
     }
 
+    //Para registrar un usuario en el sistema.
     @PostMapping
     @PreAuthorize("hasRole('ADMINISTRADOR')")
     public ResponseEntity<UsuarioResponseDTO> crearUsuario(@Valid @RequestBody CrearUsuarioRequestDTO requestDTO) {
@@ -37,6 +39,7 @@ public class UsuarioController {
         return new ResponseEntity<>(nuevoUsuario, HttpStatus.CREATED);
     }
 
+    //Poder acceder a usuario por "id". Para alumno, solo puede acceder a su propia información registrada
     @GetMapping("/{id}")
     @PreAuthorize("hasRole('ADMINISTRADOR') or hasRole('PROFESOR') or " +
             "(hasRole('ALUMNO') and principal.username == @usuarioService.getEmailUsuario(#id))")
@@ -45,16 +48,19 @@ public class UsuarioController {
         return ResponseEntity.ok(usuario);
     }
 
-
-
+    //Poder actualizar alumno
     @PutMapping("/{id}")
-    @PreAuthorize("hasRole('ADMINISTRADOR') or (principal.username == @usuarioService.getEmailUsuario(#id))")
+    @PreAuthorize("hasRole('ADMINISTRADOR')")
     public ResponseEntity<UsuarioResponseDTO> actualizarUsuario(@PathVariable int id, @Valid @RequestBody ActualizarUsuarioRequestDTO requestDTO) {
         UsuarioResponseDTO usuarioActualizado = usuarioService.actualizarUsuario(id, requestDTO);
         return ResponseEntity.ok(usuarioActualizado);
     }
 
-
-
-
+    //Poder desahibilitar
+    @DeleteMapping("/{id}")
+    @PreAuthorize("hasRole('ADMINISTRADOR')")
+    public ResponseEntity<UsuarioResponseDTO> deshabilitarUsuario(@PathVariable int id){
+        UsuarioResponseDTO usuarioDeshabilitado = usuarioService.deshabilitarUsuario(id);
+        return ResponseEntity.ok(usuarioDeshabilitado);
+    }
 }

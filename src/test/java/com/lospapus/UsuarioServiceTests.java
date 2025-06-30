@@ -59,7 +59,7 @@ public class UsuarioServiceTests {
         UsuarioResponseDTO dtoEsperado = new UsuarioResponseDTO(
                 10, req.getName(), req.getDni(), req.getEmail(),
                 req.getDireccion(), req.getTelefono(),
-                req.getFechaNacimiento(), LocalDate.now(), new RolResponseDTO(1, "USER"), true);
+                req.getFechaNacimiento(), LocalDate.now(), new RolResponseDTO(1, "ALUMNO"), true);
 
         when(rolRepository.findByRol("ALUMNO")).thenReturn(Optional.of(rol));
         when(usuarioRepository.findByEmail(req.getEmail())).thenReturn(Optional.empty());

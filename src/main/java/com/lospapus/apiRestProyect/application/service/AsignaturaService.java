@@ -4,10 +4,10 @@ import com.lospapus.apiRestProyect.application.Mapper.AplicacionMapper;
 import com.lospapus.apiRestProyect.application.dto.AsignaturaResponseDTO;
 import com.lospapus.apiRestProyect.domain.model.Asignatura;
 import com.lospapus.apiRestProyect.domain.repository.AsignaturaRepository;
-import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.stream.Collectors;
+
 
 @Service
 public class AsignaturaService {

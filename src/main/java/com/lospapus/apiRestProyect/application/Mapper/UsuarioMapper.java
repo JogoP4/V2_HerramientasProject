@@ -51,14 +51,6 @@ public class UsuarioMapper {
 
         RolEntity rolEntity = RolMapper.toEntity(usuarioDomain.getRol());
         entity.setRolEntity(rolEntity);
-        // MUY IMPORTANTE: passwordHash
-        // Si el usuarioDomain viene de un CreacionDTO, su passwordHash no estará aquí.
-        // La Entidad JPA SI necesita passwordHash. Este campo se establecerá
-        // DESPUÉS del mapeo, por el servicio de aplicación que hasheó la contraseña.
-        // O si es una actualización, se DEBE cargar la entidad existente para mantener el hash.
-        // Por eso, NO copiamos el passwordHash directamente desde el modelo de dominio aquí.
-        // usuarioEntity.setPasswordHash(usuarioDomain.getPasswordHash()); // << NO HACER ESTO, a menos que el dominio realmente lo maneje
-
         return entity;
     }
 
@@ -67,6 +59,7 @@ public class UsuarioMapper {
         usuarioEntity.setDireccion(usuarioDomain.getDireccion());
         usuarioEntity.setTelefono(usuarioDomain.getTelefono());
         usuarioEntity.setEmail(usuarioDomain.getEmail());
+        usuarioEntity.setActive(usuarioDomain.isActive());
     }
 
 

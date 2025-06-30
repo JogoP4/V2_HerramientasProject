@@ -13,6 +13,7 @@ jobs:
           echo "Nombre de rama: ${{ github.head_ref }}"
           if [[ ! "${{ github.head_ref }}" =~ ^(feature|bugfix|hotfix)/.+$ ]]; then
             echo "::error ::❌ Nombre de rama inválido: '${{ github.head_ref }}'"
-            echo "::error ::Debe comenzar con: feature/, bugfix/, hotfix/"
+            echo "::error ::Debe comenzar con: feature/, bugfix/, hotfix/. Seguido de las iniciales y descripcion simple"
+            echo "::error ::Ejemplo: feature/S58-AC-RegistrarUsuarios "
             exit 1
           fi

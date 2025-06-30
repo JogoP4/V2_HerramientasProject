@@ -39,7 +39,9 @@ public class UsuarioController {
         return new ResponseEntity<>(nuevoUsuario, HttpStatus.CREATED);
     }
 
+
     //Poder acceder a usuario por "id". Para alumno, solo puede acceder a su propia información registrada
+
     @GetMapping("/{id}")
     @PreAuthorize("hasRole('ADMINISTRADOR') or hasRole('PROFESOR') or " +
             "(hasRole('ALUMNO') and principal.username == @usuarioService.getEmailUsuario(#id))")

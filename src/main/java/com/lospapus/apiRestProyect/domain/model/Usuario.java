@@ -12,7 +12,6 @@ import java.util.List;
 
 @Setter
 @Getter
-@NoArgsConstructor
 @ToString
 public class Usuario {
     private Integer id;
@@ -26,6 +25,8 @@ public class Usuario {
     private LocalDate fechaRegistro;
     private boolean active;
     private Rol rol;
+
+    public Usuario() {}
 
     public Usuario(Integer id, String name, String dni, String direccion, String telefono, String email, String password, Date fechaNacimiento, LocalDate fechaRegistro, boolean active, Rol rol) {
         this.id = id;

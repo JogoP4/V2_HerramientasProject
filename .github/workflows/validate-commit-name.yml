@@ -16,16 +16,17 @@ jobs:
             "${{ github.api_url }}/repos/${{ github.repository }}/pulls/${{ github.event.pull_request.number }}/commits" \
             | jq -r '.[].commit.message')
 
-          REGEX='^(feat-).+'
+          REGEX='^(feat-|fix-).+'
           INVALID=0
 
-          echo "✅ Prefijos válidos: feat-"
+          echo "✅ Prefijos válidos: feat- | fix-"
 
           echo "$COMMITS" | while read -r COMMIT_MSG; do
             echo "📝 Validando: '$COMMIT_MSG'"
             if [[ ! "$COMMIT_MSG" =~ $REGEX ]]; then
               echo "::error ::❌ Commit inválido: '$COMMIT_MSG'"
-              echo "::error ::El mensaje debe comenzar el siguiente prefijo: feat-"
+              echo "::error ::El mensaje debe comenzar el siguiente prefijo: feat- | fix-"
+              echo "::error ::Ejemplo: feat-S11-Añadido funcionalidad en Servicio para actualizar notas"
               INVALID=1
             fi
           done

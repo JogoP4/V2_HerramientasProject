@@ -5,12 +5,15 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 @Getter
-@AllArgsConstructor
 @NoArgsConstructor
 public class Rol {
     private Integer id;
     private String nombreRol;
 
+    public Rol(Integer id, String nombreRol) {
+        this.id = id;
+        this.nombreRol = nombreRol;
+    }
 
     public boolean esAdministrador() {
         return "ADMINISTRADOR".equalsIgnoreCase(this.nombreRol);

@@ -4,6 +4,7 @@ import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalDate;
@@ -11,6 +12,7 @@ import java.util.Date;
 
 @Getter
 @Setter
+@NoArgsConstructor
 public class CrearUsuarioRequestDTO {
     @NotBlank(message = "El nombre no puede estar vacío")
     private String name;

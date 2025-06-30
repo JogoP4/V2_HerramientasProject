@@ -8,8 +8,6 @@ import com.lospapus.apiRestProyect.domain.repository.AsignaturaRepository;
 import java.util.List;
 import java.util.stream.Collectors;
 
-
-@Service
 public class AsignaturaService {
     private final AsignaturaRepository asignaturaRepository;
     private final AplicacionMapper mapper;

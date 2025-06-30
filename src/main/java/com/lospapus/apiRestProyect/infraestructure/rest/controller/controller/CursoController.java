@@ -24,3 +24,5 @@ public class CursoController {
         return ResponseEntity.ok(allCursos);
     }
 }
+
+//Solucionado problema GES-7 Un profesor puede ver cursos que no le están asignados (SEGURIDAD)

@@ -1,6 +1,6 @@
 [![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/JogoP4/V2_HerramientasProject)
 
-# 📦 Release Plan - SistemaGestorDeNotas v2.0
+#  Release Plan - SistemaGestorDeNotas v2.0
 
 ## Contenido
 
@@ -130,9 +130,9 @@ Equipo de QA interno: Validación de funcionalidades nuevas
 | Responsable del repositorio | Josué G. Palacios Chero            | Revisión de PRs, políticas, versiones |
 
 ### 5.2 Aprobaciones requeridas para el release
-- ✅ Revisión de código por al menos 1 compañero  
-- ✅ QA aprobado  
-- ✅ CI exitoso  
+-  Revisión de código por al menos 1 compañero  
+-  QA aprobado  
+-  CI exitoso  
 
 ---
 
@@ -172,9 +172,9 @@ Equipo de QA interno: Validación de funcionalidades nuevas
 ## 7. Validación y QA
 
 ### 7.1 Estrategia de pruebas
-- ✅ Pruebas unitarias (JUnit + Maven Surefire)  
-- ✅ Pruebas de integración (contenedor MySQL)  
-- ✅ Pruebas manuales (QA interno)  
+-  Pruebas unitarias (JUnit + Maven Surefire)  
+-  Pruebas de integración (contenedor MySQL)  
+-  Pruebas manuales (QA interno)  
 
 ### 7.2 Herramientas utilizadas
 
@@ -195,7 +195,7 @@ Equipo de QA interno: Validación de funcionalidades nuevas
 - Validación de errores comunes (PDF inválido, campos vacíos, etc.)  
 
 ### 7.4 Resultado de la validación final
-✅ Todos los criterios de aceptación y validación técnica han sido cumplidos.  
-🚀 El sistema está listo para ser liberado en la versión **v2.0**.
+ Todos los criterios de aceptación y validación técnica han sido cumplidos.  
+ El sistema está listo para ser liberado en la versión **v2.0**.
 
 ---

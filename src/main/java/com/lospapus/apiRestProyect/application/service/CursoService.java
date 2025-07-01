@@ -28,3 +28,5 @@ public class CursoService {
                  .collect(Collectors.toList());
      }
 }
+
+//Solucionado error La lista de cursos asignados a un profesor está incompleta o duplicada (SERVICIO)

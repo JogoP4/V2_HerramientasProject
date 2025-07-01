@@ -23,4 +23,7 @@ public class AsignaturaController {
         List<AsignaturaResponseDTO> allAsignaturas = asignaturaService.listarTodasAsignaturas();
         return ResponseEntity.ok(allAsignaturas);
     }
+
+
+
 }

@@ -27,6 +27,8 @@ public class NotaController {
         return new ResponseEntity<>(nuevaNota, HttpStatus.CREATED);
     }
 
+
+
     @GetMapping
     public ResponseEntity<List<NotaResponseDTO>> obtenerTodasNotas(){
         List<NotaResponseDTO> allNotas = notaService.listarTodoasNotas();

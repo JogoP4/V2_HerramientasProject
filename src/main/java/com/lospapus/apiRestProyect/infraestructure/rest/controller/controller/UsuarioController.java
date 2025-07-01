@@ -48,6 +48,8 @@ public class UsuarioController {
         return ResponseEntity.ok(usuario);
     }
 
+
+
     //Poder actualizar alumno
     @PutMapping("/{id}")
     @PreAuthorize("hasRole('ADMINISTRADOR')")

@@ -26,3 +26,4 @@ public class CursoController {
 }
 
 //Solucionado problema GES-7 Un profesor puede ver cursos que no le están asignados (SEGURIDAD)
+//Solucionando problema GES-11 Error al navegar desde la lista de cursos asignados a detalles del curso (OPERATIVO)

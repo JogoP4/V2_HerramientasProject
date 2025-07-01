@@ -25,3 +25,6 @@ public class AsignaturaService {
                 .collect(Collectors.toList());
     }
 }
+
+
+//Solucionado problema Fallo al exportar o imprimir reportes de asistencia (OPERATIVO)

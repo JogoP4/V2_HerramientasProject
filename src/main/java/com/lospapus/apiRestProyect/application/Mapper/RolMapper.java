@@ -14,13 +14,16 @@ public class RolMapper {
     }
 
     public static RolEntity toEntity(Rol rolDomain) {
+    RolEntity rolEntity = new RolEntity();
 
-        RolEntity rolEntity = new RolEntity();
+    if (rolDomain.getId() != null) {
         rolEntity.setId(rolDomain.getId());
-
-        rolEntity.setNombreRol(rolDomain.getNombreRol());
-        return rolEntity;
     }
+
+    rolEntity.setNombreRol(rolDomain.getNombreRol());
+    return rolEntity;
+}
+
 
     public static RolResponseDTO toRolResponseDTO(Rol rolDomain) {
         if (rolDomain == null) {

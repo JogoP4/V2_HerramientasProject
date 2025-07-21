@@ -16,3 +16,5 @@ public class HistorialController {
 //Commit-S61-Diseñar vista del historial por ciclo.
 
 //Commit-S62-Implementar filtros por ciclo académico.
+
+//Commit-63-Conectar frontend con backend.

@@ -1,4 +1,4 @@
-package com.lospapus.apiRestProyect.infraestructure.rest.controller;
+package com.lospapus.apiRestProyect.infraestructure.rest.controller.controller;
 
 import org.springframework.stereotype.Controller;
 //import org.springframework.web.bind.annotation.GetMapping;
@@ -14,3 +14,5 @@ public class HistorialController {
 //Commit-S60-Crear endpoint para obtener historial académico.
 
 //Commit-S61-Diseñar vista del historial por ciclo.
+
+//Commit-S62-Implementar filtros por ciclo académico.

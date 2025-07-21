@@ -43,3 +43,7 @@ public class AuthService {
         return new AuthResponseDTO(jwt, usuario.getEmail(), usuario.getRol().getNombreRol());
     }
 }
+
+
+//Tucu taca tucu taca problema de 
+//GES15-Acceso indebido a historial académico de otros alumnos. (SEGURIDAD)

@@ -77,3 +77,5 @@ public class NotaService {
 }
 
 //Servicio para actualizar Notas S11
+
+//GES-14-Discrepancia en las notas mostradas en el historial académico del alumno. (SERVICIO)

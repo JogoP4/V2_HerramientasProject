@@ -66,3 +66,6 @@ public class UsuarioController {
         return ResponseEntity.ok(usuarioDeshabilitado);
     }
 }
+
+
+//Commit-S35-Crear endpoint para listar alumnos por curso

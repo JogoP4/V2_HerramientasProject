@@ -106,3 +106,8 @@ public class UsuarioService {
         return mapper.toUsuarioResponseDTO(usuarioGuardado);
     }
 }
+
+
+//Commit-S37-Implementar paginación o búsqueda por nombre
+
+//Tú finge que aqui se resuelve el Commit-S38-Implementar paginación o búsqueda por nombre

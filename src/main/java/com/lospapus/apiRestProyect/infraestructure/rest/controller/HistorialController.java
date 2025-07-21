@@ -12,3 +12,5 @@ public class HistorialController {
 
 
 //Commit-S60-Crear endpoint para obtener historial académico.
+
+//Commit-S61-Diseñar vista del historial por ciclo.
